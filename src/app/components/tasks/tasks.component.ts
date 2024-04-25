@@ -38,8 +38,8 @@ export class TasksComponent implements OnInit {
   };
 
   togglePriority(task: Task) {
-    task.reminder = !task.reminder;
-    console.log(task.reminder);
+    task.priority = !task.priority;
+    console.log(task.priority);
     this.taskService.togglePriority(task)
       .subscribe();
   };

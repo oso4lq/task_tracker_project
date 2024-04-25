@@ -1,28 +1,65 @@
 {
   "tasks": [
     {
+      "id": "1",
+      "title": "make a draft",
+      "description": "make a draft of the project",
+      "deadline": "24.04.",
+      "priority": true,
+      "assignee": "Osetr"
+    },
+    {
       "id": "2",
-      "text": "Meeting at School",
-      "day": "May 6th at 1:30pm",
-      "reminder": true
+      "title": "make and link the pages",
+      "description": "make the pages and link them",
+      "deadline": "25.04.",
+      "priority": false,
+      "assignee": "Osetr"
     },
     {
       "id": "3",
-      "text": "Food Shopping",
-      "day": "May 7th at 12:30pm",
-      "reminder": false
+      "title": "extra functionality",
+      "description": "add extra functionality",
+      "deadline": "25.04.",
+      "priority": false,
+      "assignee": "Osetr"
     },
     {
-      "id": "a5ad",
-      "text": "1213",
-      "day": "",
-      "reminder": false
+      "id": "4",
+      "title": "styling",
+      "description": "style the project",
+      "deadline": "26.04.",
+      "priority": false,
+      "assignee": "Osetr"
     },
     {
-      "id": "a336",
-      "text": "44",
-      "day": "112",
-      "reminder": false
+      "id": "7c88",
+      "title": "send the project",
+      "description": "send the perfect project to the company",
+      "deadline": "27.04",
+      "priority": true,
+      "status": "to-do",
+      "assignee": "1"
+    }
+  ],
+  "assignees": [
+    {
+      "id": "1",
+      "name": "Authorized Osetr",
+      "email": "osetr@fish.com",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Jane Doe",
+      "email": "jane.doe@mail.mail",
+      "role": "user"
+    },
+    {
+      "id": "3",
+      "name": "John Doe",
+      "email": "john.doe@mail.mail",
+      "role": "user"
     }
   ]
 }

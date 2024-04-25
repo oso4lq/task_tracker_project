@@ -1,7 +1,14 @@
-<div [ngClass]="{ reminder: task.reminder }" class="task" (dblclick)="handlePriority(task)">
-    <h3>{{task.text}}
-        <!-- <fa-icon [ngStyle]="{'color': 'blue'}" [icon]="faTimes" (click)="handleDeleteTask(task)"></fa-icon> -->
+<div [ngClass]="{ reminder: task.priority }" class="task" (dblclick)="handlePriority(task)">
+
+    <h3>{{task.title}}
         <mat-icon (click)="handleDeleteTask(task)">delete</mat-icon>
     </h3>
-    <p>{{task.day}}</p>
+
+    <p>{{task.description}}</p>
+
+    <div class="task_footer">
+        <p>Assignee: {{task.assignee}}</p>
+        <p>Deadline: {{task.deadline}}</p>
+    </div>
+
 </div>

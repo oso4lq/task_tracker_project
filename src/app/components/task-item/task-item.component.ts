@@ -30,12 +30,12 @@ export class TaskItemComponent implements OnInit {
   ngOnInit(): void { }
 
   handleDeleteTask(task: Task) {
-    console.log('delete ' + task.text);
+    console.log('delete ' + task.title);
     this.deleteTask.emit(task);
   };
 
   handlePriority(task: Task) {
-    console.log('priority ' + task.text);
+    console.log('priority ' + task.title);
     this.togglePriority.emit(task);
   };
 

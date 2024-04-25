@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Task } from '../../TaskInterface';
+import { Assignee, Task } from '../../TaskInterface';
 import { UiService } from '../../services/ui.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -20,9 +20,18 @@ export class AddTaskComponent implements OnInit {
 
   @Output() addTask: EventEmitter<Task> = new EventEmitter();
 
-  text: string = '';
-  day: string = '';
-  reminder: boolean = false;
+  title: string = '';
+  description: string = '';
+  deadline: string = '';
+  priority: boolean = false;
+  status: string = '';
+  // assignee: Array<Assignee> = [{
+  //   id: null,
+  //   name: '',
+  //   email: '',
+  //   role: '',
+  // }];
+  assignee: string = '';
   subscription: Subscription;
   showAddTask: boolean = false;
 
@@ -39,15 +48,18 @@ export class AddTaskComponent implements OnInit {
   };
 
   onSubmit() {
-    if (!this.text) {
+    if (!this.title) {
       alert('Please add a task');
       return;
     }
 
     const newTask = {
-      text: this.text,
-      day: this.day,
-      reminder: this.reminder
+      title: this.title,
+      description: this.description,
+      deadline: this.deadline,
+      priority: this.priority,
+      status: this.status,
+      assignee: this.assignee,
     };
 
     console.log('added task');
@@ -55,9 +67,12 @@ export class AddTaskComponent implements OnInit {
 
     this.addTask.emit(newTask);
 
-    this.text = '';
-    this.day = '';
-    this.reminder = false;
+    this.title = '';
+    this.description = '';
+    this.deadline = '';
+    this.priority = false;
+    this.status = '';
+    this.assignee = '';
   };
 
 };
