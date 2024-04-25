@@ -1,6 +1,7 @@
 <div [ngClass]="{ reminder: task.reminder }" class="task" (dblclick)="handlePriority(task)">
     <h3>{{task.text}}
-        <fa-icon [ngStyle]="{'color': 'blue'}" [icon]="faTimes" (click)="handleDeleteTask(task)"></fa-icon>
+        <!-- <fa-icon [ngStyle]="{'color': 'blue'}" [icon]="faTimes" (click)="handleDeleteTask(task)"></fa-icon> -->
+        <mat-icon (click)="handleDeleteTask(task)">delete</mat-icon>
     </h3>
     <p>{{task.day}}</p>
 </div>

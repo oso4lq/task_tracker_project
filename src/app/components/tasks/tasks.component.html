@@ -1,9 +1,8 @@
-<app-add-task (addTask)="addTask($event)"></app-add-task>
-
 <app-task-item 
     *ngFor="let task of tasks" 
     [task]="task" 
     (deleteTask)="deleteTask(task)"
     (togglePriority)="togglePriority(task)"
 >
+<mat-divider></mat-divider>
 </app-task-item>

@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { TaskItemComponent } from '../task-item/task-item.component';
 import { TaskService } from '../../services/task.service';
 import { AddTaskComponent } from '../add-task/add-task.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tasks',
@@ -12,6 +14,8 @@ import { AddTaskComponent } from '../add-task/add-task.component';
   standalone: true,
   imports: [
     CommonModule,
+    MatDividerModule,
+    MatIconModule,
     TaskItemComponent,
     AddTaskComponent,
   ],

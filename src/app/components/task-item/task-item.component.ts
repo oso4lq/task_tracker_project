@@ -3,6 +3,7 @@ import { Task } from '../../TaskInterface';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-task-item',
@@ -11,6 +12,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule,
+    MatIconModule,
     FontAwesomeModule,
   ],
 })
