@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     MatIconModule,
-    FontAwesomeModule,
+    // FontAwesomeModule,
   ],
 })
 
@@ -23,10 +23,9 @@ export class TaskItemComponent implements OnInit {
   @Output() deleteTask: EventEmitter<Task> = new EventEmitter();
   @Output() togglePriority: EventEmitter<Task> = new EventEmitter();
 
-  faTimes = faTimes;
+  // faTimes = faTimes;
 
   constructor() { }
-
   ngOnInit(): void { }
 
   handleDeleteTask(task: Task) {

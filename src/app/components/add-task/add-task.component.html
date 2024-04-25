@@ -1,60 +1,64 @@
-<form class="add-form" (ngSubmit)="onSubmit()">
+<div class="container">
+    
+    <form class="add-form" (ngSubmit)="onSubmit()">
 
-    <!-- TITLE -->
-    <div class="form-control">
-        <label for="title">Task</label>
-        <input type="text" name="title" id="title" placeholder="add task name" [(ngModel)]="title">
-    </div>
-    <!-- DESCRIPTION -->
-    <div class="form-control">
-        <label for="description">Description</label>
-        <input type="text" name="description" id="description" placeholder="add task" [(ngModel)]="description">
-    </div>
-    <!-- DEADLINE -->
-    <div class="form-control">
-        <label for="text">Deadline</label>
-        <input type="text" name="deadline" id="deadline" placeholder="select the deadline" [(ngModel)]="deadline">
-    </div>
-    <!-- PRIORITY -->
-    <div class="form-control form-control-check">
-        <label for="text">Is this task a priority?</label>
-        <input type="checkbox" name="priority" id="priority" [(ngModel)]="priority">
-    </div>
-
-
-    <!-- STATUS - add map to status list ?-->
-    <div class="form-control form-control-check">
-        <legend>Choose Status</legend>
-        <div>
-            <label for="stasus">To Do</label>
-            <input type="radio" name="stasus" id="to-do" value="to-do" [(ngModel)]="status">
+        <!-- TITLE -->
+        <div class="form-control">
+            <label for="title">Task</label>
+            <input type="text" name="title" id="title" placeholder="add task name" [(ngModel)]="title">
         </div>
-        <div>
-            <label for="stasus">In Process</label>
-            <input type="radio" name="stasus" id="in-processs" value="in-processs" [(ngModel)]="status">
+        <!-- DESCRIPTION -->
+        <div class="form-control">
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" placeholder="add task" [(ngModel)]="description">
         </div>
-        <div>
-            <label for="stasus">Testing</label>
-            <input type="radio" name="stasus" id="testing" value="testing" [(ngModel)]="status">
+        <!-- DEADLINE -->
+        <div class="form-control">
+            <label for="text">Deadline</label>
+            <input type="text" name="deadline" id="deadline" placeholder="select the deadline" [(ngModel)]="deadline">
         </div>
-        <div>
-            <label for="stasus">Done</label>
-            <input type="radio" name="stasus" id="done" value="done" [(ngModel)]="status">
+        <!-- PRIORITY -->
+        <div class="form-control form-control-check">
+            <label for="text">Is this task a priority?</label>
+            <input type="checkbox" name="priority" id="priority" [(ngModel)]="priority">
         </div>
-    </div>
 
-    <!-- ASSIGNEE - add map to assignee list ?-->
-    <div class="form-control">
-        <label for="assignee">Assignee</label>
-        <select name="assignee" id="assignee" [(ngModel)]="assignee">
-            <option value="">-- Choose the assignee --</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-    </div>
 
-    <!-- add a link that redirects to the home page after successfully saving a task -->
-    <input type="submit" value="save task" class="btn btn-block">
+        <!-- STATUS - add map to status list ?-->
+        <div class="form-control form-control-check">
+            <legend>Choose Status</legend>
+            <div>
+                <label for="stasus">To Do</label>
+                <input type="radio" name="stasus" id="to-do" value="TO DO" [(ngModel)]="status">
+            </div>
+            <div>
+                <label for="stasus">In Process</label>
+                <input type="radio" name="stasus" id="in-processs" value="IN PROCESS" [(ngModel)]="status">
+            </div>
+            <div>
+                <label for="stasus">Testing</label>
+                <input type="radio" name="stasus" id="testing" value="TESTING" [(ngModel)]="status">
+            </div>
+            <div>
+                <label for="stasus">Done</label>
+                <input type="radio" name="stasus" id="done" value="DONE" [(ngModel)]="status">
+            </div>
+        </div>
 
-</form>
+        <!-- ASSIGNEE - add map to assignee list ?-->
+        <div class="form-control">
+            <label for="assignee">Assignee</label>
+            <select name="assignee" id="assignee" [(ngModel)]="assignee">
+                <option value="">-- Choose the assignee --</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+
+        <!-- add a link that redirects to the home page after successfully saving a task -->
+        <input type="submit" value="save task" class="btn btn-block">
+
+    </form>
+
+</div>

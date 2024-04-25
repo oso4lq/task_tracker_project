@@ -1,11 +1,14 @@
 import { Routes } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { NewTaskComponent } from './components/new-task/new-task.component';
+import { UsersComponent } from './components/users/users.component';
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'home'},
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: MainComponent },
     { path: 'new-task', component: NewTaskComponent },
+    { path: 'browse-task', component: NewTaskComponent },
+    { path: 'users', component: UsersComponent }
 
     // { path: 'new-task', 
     //     loadComponent: () =>

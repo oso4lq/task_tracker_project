@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Assignee, Task } from '../../TaskInterface';
+import { User, Task } from '../../TaskInterface';
 import { UiService } from '../../services/ui.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';

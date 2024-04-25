@@ -1,8 +1,58 @@
-<app-task-item 
+<div class="form-control form-control-check">
+    <legend>Filter by:</legend>
+    <div>
+        <label for="stasus">status</label>
+        <input type="radio" name="filter" id="status" value="status" [(ngModel)]="filter"
+            (change)="onFilterChange('status')">
+    </div>
+    <div>
+        <label for="stasus">assignee</label>
+        <input type="radio" name="filter" id="assignee" value="assignee" [(ngModel)]="filter"
+            (change)="onFilterChange('assignee')">
+    </div>
+    <div>
+        <label for="stasus">deadline</label>
+        <input type="radio" name="filter" id="deadline" value="deadline" [(ngModel)]="filter"
+            (change)="onFilterChange('deadline')">
+    </div>
+</div>
+
+<div class="statusColumns">
+    <div *ngFor="let filterValue of keys(filteredTasks)" class="taskColumn">
+        <h3>{{ filterValue }}</h3>
+        <app-task-item *ngFor="let task of filteredTasks[filterValue]" [task]="task" (deleteTask)="deleteTask(task)"
+            (togglePriority)="togglePriority(task)">
+            <mat-divider></mat-divider>
+        </app-task-item>
+    </div>
+</div>
+<!--
+-->
+<!-- 
+<div class="statusColumns">
+
+    <div *ngFor="let status of statusNames" class="taskColumn">
+        <h3>{{ status }}</h3>
+        <h3>{{columnNumber}}</h3>
+
+        <app-task-item *ngFor="let task of filterTasks(status)" [task]="task" (deleteTask)="deleteTask(task)"
+            (togglePriority)="togglePriority(task)">
+            <mat-divider></mat-divider>
+        </app-task-item>
+    </div>
+</div>
+
+-->
+
+
+
+<!-- 
+    <app-task-item 
     *ngFor="let task of tasks" 
     [task]="task" 
     (deleteTask)="deleteTask(task)"
     (togglePriority)="togglePriority(task)"
 >
 <mat-divider></mat-divider>
-</app-task-item>
+</app-task-item> 
+-->

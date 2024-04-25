@@ -8,7 +8,7 @@ import { TasksComponent } from '../tasks/tasks.component';
   standalone: true,
   imports: [
     RouterModule,
-    HeaderComponent,
+    // HeaderComponent,
     TasksComponent,
   ],
   templateUrl: './main.component.html',

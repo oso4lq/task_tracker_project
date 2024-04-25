@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Task } from '../TaskInterface';
+import { Task, User } from '../TaskInterface';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,12 +16,17 @@ const httpOptions = {
 export class TaskService {
 
   private API_URL = 'http://localhost:4321/tasks';
+  // private API_URL_USERS = 'http://localhost:4321/users';
 
   constructor(private http:HttpClient) { }
 
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.API_URL);
   };
+
+  // getUsers(): Observable<User[]> {
+  //   return this.http.get<User[]>(this.API_URL_USERS);
+  // }
 
   deleteTask(task: Task): Observable<Task> {
     const URL = `${this.API_URL}/${task.id}`;

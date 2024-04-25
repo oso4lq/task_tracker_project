@@ -9,7 +9,7 @@ export interface Task {
   assignee: string;
 };
 
-export interface Assignee {
+export interface User {
   id?: number;
   name: string;
   email: string;

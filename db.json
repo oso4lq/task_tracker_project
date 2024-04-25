@@ -6,6 +6,7 @@
       "description": "make a draft of the project",
       "deadline": "24.04.",
       "priority": true,
+      "status": "DONE",
       "assignee": "Osetr"
     },
     {
@@ -14,6 +15,7 @@
       "description": "make the pages and link them",
       "deadline": "25.04.",
       "priority": false,
+      "status": "IN PROCESS",
       "assignee": "Osetr"
     },
     {
@@ -22,6 +24,7 @@
       "description": "add extra functionality",
       "deadline": "25.04.",
       "priority": false,
+      "status": "IN PROCESS",
       "assignee": "Osetr"
     },
     {
@@ -30,6 +33,7 @@
       "description": "style the project",
       "deadline": "26.04.",
       "priority": false,
+      "status": "TO DO",
       "assignee": "Osetr"
     },
     {
@@ -37,12 +41,12 @@
       "title": "send the project",
       "description": "send the perfect project to the company",
       "deadline": "27.04",
-      "priority": true,
-      "status": "to-do",
-      "assignee": "1"
+      "priority": false,
+      "status": "TO DO",
+      "assignee": "Osetr"
     }
   ],
-  "assignees": [
+  "users": [
     {
       "id": "1",
       "name": "Authorized Osetr",
