@@ -2,15 +2,19 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Task } from '../../TaskInterface';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgStyle } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task-item',
-  // standalone: true,
-  // imports: [FontAwesomeModule, NgStyle],
   templateUrl: './task-item.component.html',
-  styleUrl: './task-item.component.scss'
+  styleUrl: './task-item.component.scss',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+  ],
 })
+
 export class TaskItemComponent implements OnInit {
 
   @Input() task!: Task;

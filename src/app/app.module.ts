@@ -19,10 +19,10 @@ import { UiService } from './services/ui.service';
 
 @NgModule({
     imports: [
-        FormsModule,
-        CommonModule,
-        FontAwesomeModule,
-        HttpClientModule,
+        // FormsModule,
+        // CommonModule,
+        // FontAwesomeModule,
+        // HttpClientModule,
 
         // RouterModule.forRoot(routes, { enableTracing: true }),
 
@@ -34,23 +34,23 @@ import { UiService } from './services/ui.service';
     ],
     declarations: [
         // AppComponent,
-        HeaderComponent,
-        TasksComponent,
-        TaskItemComponent,
-        ButtonComponent,
-        AddTaskComponent,
+        // HeaderComponent,
+        // TasksComponent,
+        // TaskItemComponent,
+        // ButtonComponent,
+        // AddTaskComponent,
     ],
     exports: [
         // AppComponent,
-        HeaderComponent,
-        TasksComponent,
-        TaskItemComponent,
-        ButtonComponent,
-        AddTaskComponent,
+        // HeaderComponent,
+        // TasksComponent,
+        // TaskItemComponent,
+        // ButtonComponent,
+        // AddTaskComponent,
     ],
     providers: [
-        TaskService,
-        UiService,
+        // TaskService,
+        // UiService,
     ],
     bootstrap: [
         // AppComponent,

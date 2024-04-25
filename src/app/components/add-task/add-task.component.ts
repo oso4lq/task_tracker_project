@@ -2,12 +2,20 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../TaskInterface';
 import { UiService } from '../../services/ui.service';
 import { Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
-  styleUrl: './add-task.component.scss'
+  styleUrl: './add-task.component.scss',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+  ],
 })
+
 export class AddTaskComponent implements OnInit {
 
   @Output() addTask: EventEmitter<Task> = new EventEmitter();
@@ -29,8 +37,6 @@ export class AddTaskComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   };
-
-  // ngOnInit(): void { }
 
   onSubmit() {
     if (!this.text) {

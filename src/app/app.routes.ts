@@ -1,10 +1,20 @@
 import { Routes } from '@angular/router';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { AddTaskComponent } from './components/add-task/add-task.component';
+import { MainComponent } from './components/main/main.component';
+import { NewTaskComponent } from './components/new-task/new-task.component';
 
 export const routes: Routes = [
-    { path: '', component: TasksComponent },
-    { path: 'add', component: AddTaskComponent },
+    { path: '', pathMatch: 'full', redirectTo: 'home'},
+    { path: 'home', component: MainComponent },
+    { path: 'new-task', component: NewTaskComponent },
+
+    // { path: 'new-task', 
+    //     loadComponent: () =>
+    //         import('./components/add-task/add-task.component').then(
+    //             (mod) => mod.NewTaskComponent,
+    //         ),
+    // },
+
+    // { path: 'add', component: AddTaskComponent },
     // { path: 'about', component: AboutComponent },
     // { path: 'browse', component: BrowseComponent },
     // { path: '**', redirectTo: '/', pathMatch: 'full' },

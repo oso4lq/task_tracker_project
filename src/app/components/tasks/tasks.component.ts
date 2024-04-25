@@ -3,13 +3,18 @@ import { Task } from '../../TaskInterface';
 import { CommonModule } from '@angular/common';
 import { TaskItemComponent } from '../task-item/task-item.component';
 import { TaskService } from '../../services/task.service';
+import { AddTaskComponent } from '../add-task/add-task.component';
 
 @Component({
   selector: 'app-tasks',
-  // standalone: true,
-  // imports: [CommonModule, TaskItemComponent],
   templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.scss'
+  styleUrl: './tasks.component.scss',
+  standalone: true,
+  imports: [
+    CommonModule,
+    TaskItemComponent,
+    AddTaskComponent,
+  ],
 })
 
 export class TasksComponent implements OnInit {
