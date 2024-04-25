@@ -16,10 +16,6 @@ import { TaskService } from '../../services/task.service';
 })
 export class NewTaskComponent implements OnInit {
 
-  // constructor() { }
-  // ngOnInit(): void {
-  // }
-
   tasks: Task[] = [];
 
   constructor(private taskService: TaskService) { }
@@ -45,7 +41,6 @@ export class NewTaskComponent implements OnInit {
     this.taskService.addTask(task)
       .subscribe((task) => this.tasks.push(task));
     console.log('added task');
-    // this.router.navigate(['/new-task']);
   };
 
 }

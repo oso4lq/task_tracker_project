@@ -4,7 +4,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 
 import { TaskItemComponent } from '../task-item/task-item.component';
-import { AddTaskComponent } from '../add-task/add-task.component';
 import { TaskService } from '../../services/task.service';
 
 import { Task } from '../../TaskInterface';
@@ -22,7 +21,6 @@ import { FormsModule } from '@angular/forms';
     MatDividerModule,
     MatIconModule,
     TaskItemComponent,
-    // AddTaskComponent,
   ],
 })
 
@@ -42,7 +40,7 @@ export class TasksComponent implements OnInit {
     this.taskService.getTasks()
       .subscribe((tasks) => {
         this.tasks = tasks;
-        this.filterTasks(); // Filter tasks by assignee on component initialization
+        this.filterTasks();
       });
   };
 
@@ -78,58 +76,6 @@ export class TasksComponent implements OnInit {
     this.filterTasks();
   };
 
-
-  /*
-    filterTasks(status: string): Task[] {
-      // return this.tasks.filter(task => task.status === status);
-      if (this.filter === 'status') {
-        this.columnNumber = this.statusNames.length;
-        console.log(this.columnNumber);
-        return this.tasks.filter(task => task.status === status);
-      }
-      else if (this.filter === 'assignee') {
-        const assignees = this.tasks.map(task => task.assignee);
-        const uniqueAssignees = Array.from(new Set(assignees));
-        this.columnNumber = uniqueAssignees.length;
-        console.log(this.columnNumber);
-        return this.tasks.filter(task => task.assignee === uniqueAssignees[1]);
-  
-        // return this.filterByAssignee();
-      } else if (this.filter === 'deadline') {
-  
-        const deadlines = this.tasks.map(task => task.deadline);
-        const uniqueDeadliness = Array.from(new Set(deadlines));
-        this.columnNumber = uniqueDeadliness.length;
-        console.log(this.columnNumber);
-        return this.tasks.filter(task => task.deadline === uniqueDeadliness[1]);
-  
-        // return this.filterByDeadline();
-      }
-      else {
-        return [];
-      }
-    };
-  
-    // Filter tasks by assignee
-    filterByAssignee(): Task[] {
-      const assignees = this.tasks.map(task => task.assignee);
-      const uniqueAssignees = Array.from(new Set(assignees));
-      console.log(uniqueAssignees);
-      console.log(this.tasks.filter(task => uniqueAssignees.includes(task.assignee)));
-      return this.tasks.filter(task => uniqueAssignees.includes(task.assignee));
-    };
-    // Filter tasks by deadline
-    filterByDeadline(): Task[] {
-      const deadlines = this.tasks.map(task => task.deadline);
-      const uniqueDeadlines = Array.from(new Set(deadlines));
-      console.log(uniqueDeadlines);
-      console.log(this.tasks.filter(task => uniqueDeadlines.includes(task.assignee)));
-      return this.tasks.filter(task => uniqueDeadlines.includes(task.deadline));
-    };
-  */
-
-
-
   deleteTask(task: Task) {
     this.taskService.deleteTask(task)
       .subscribe(() => {
@@ -145,4 +91,4 @@ export class TasksComponent implements OnInit {
       .subscribe();
   };
 
-}
+};

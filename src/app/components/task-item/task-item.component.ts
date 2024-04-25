@@ -1,7 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Task } from '../../TaskInterface';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -13,7 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     MatIconModule,
-    // FontAwesomeModule,
   ],
 })
 
@@ -22,8 +19,6 @@ export class TaskItemComponent implements OnInit {
   @Input() task!: Task;
   @Output() deleteTask: EventEmitter<Task> = new EventEmitter();
   @Output() togglePriority: EventEmitter<Task> = new EventEmitter();
-
-  // faTimes = faTimes;
 
   constructor() { }
   ngOnInit(): void { }
@@ -38,4 +33,4 @@ export class TaskItemComponent implements OnInit {
     this.togglePriority.emit(task);
   };
 
-}
+};
