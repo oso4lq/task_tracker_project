@@ -65,10 +65,11 @@
 
 .taskColumns {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     margin: 10px;
     padding: 0px 10px;
+    overflow-x: auto;
 
     &__item {
         display: flex;
@@ -78,13 +79,11 @@
         margin: 10px;
         padding: 10px;
         border-radius: 5px;
-
         width: 25%;
+        min-width: 300px;
         max-width: 400px;
         min-height: 100px;
-
         background: #CEBCED;
-
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 

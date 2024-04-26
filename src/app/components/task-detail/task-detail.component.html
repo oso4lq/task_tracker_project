@@ -3,7 +3,6 @@
     <h1 class="container__title">{{ task.title }}</h1>
 
     <div class="taskForm" *ngIf="task">
-
         <div class="taskForm__column">
             <!-- TITLE -->
             <div class="taskForm__item">
@@ -74,8 +73,7 @@
                 </select>
             </div>
 
-
-
+            <!-- EDIT BUTTONS -->
             <div class="functionalButtons">
                 <div class="functionalButtons__actions">
                     <button mat-raised-button color="primary"
@@ -86,11 +84,6 @@
                 </div>
                 <button mat-raised-button color="basic" (click)="handleReturnHome()">Back</button>
             </div>
-
-
         </div>
-
-
-
     </div>
 </div>

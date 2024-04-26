@@ -5,7 +5,6 @@ export interface Task {
   deadline: string;
   priority: boolean;
   status: string;
-  // assignee: Array<Assignee>;
   assignee: string;
 };
 

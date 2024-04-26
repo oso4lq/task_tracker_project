@@ -1,19 +1,7 @@
-<mat-toolbar class="toolbar" color="primary">
-  
-  <div>
-    <a mat-button routerLink="/" class="btn"> Home </a>
-    <a mat-button routerLink="/new-task" class="btn"> New Task </a>
-    <!-- list of users -->
-    <a mat-button routerLink="/users" class="btn"> Users </a>
-    <!-- link displays if user is NOT signed in -->
-    <a mat-button routerLink="/signin" class="btn"> !Sign In! </a>
-    <!-- link displays if user is NOT signed in -->
-    <a mat-button routerLink="/signin" class="btn"> !Sign Out! </a>
-  </div>
-
-  <!-- span displays if user IS signed in -->
-  <span class="btn">!user!</span>
-
+<mat-toolbar color="primary">
+  <a mat-button routerLink="/" class="btn"> Home </a>
+  <a mat-button routerLink="/new-task" class="btn"> New Task </a>
+  <a mat-button routerLink="/users" class="btn"> Users </a>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

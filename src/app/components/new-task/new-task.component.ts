@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddTaskComponent } from '../add-task/add-task.component';
-import { RouterModule,Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Task } from '../../TaskInterface';
 import { TaskService } from '../../services/task.service';
 
@@ -32,7 +32,6 @@ export class NewTaskComponent implements OnInit {
 
   togglePriority(task: Task) {
     task.priority = !task.priority;
-    console.log(task.priority);
     this.taskService.togglePriority(task)
       .subscribe();
   };
@@ -40,7 +39,6 @@ export class NewTaskComponent implements OnInit {
   addTask(task: Task) {
     this.taskService.addTask(task)
       .subscribe((task) => this.tasks.push(task));
-    console.log('added task');
   };
 
 }

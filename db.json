@@ -12,7 +12,7 @@
     {
       "id": "2",
       "title": "make and link the pages",
-      "description": "MAKE MAIN PAGES:\nHome, New Task, BrowseEdit",
+      "description": "Make main pages:\nHome, New task, Browse/edit task",
       "deadline": "2024-04-25T22:00:00.000Z",
       "priority": false,
       "status": "DONE",
@@ -48,7 +48,7 @@
     {
       "id": "aef7",
       "title": "Add small features",
-      "description": "set tasks to localstorage\n\nexport reusables, bolt, date sort",
+      "description": "colorize bolt icon, format date, userpage ",
       "deadline": "2024-04-25T22:00:00.000Z",
       "priority": true,
       "status": "IN PROCESS",
@@ -57,20 +57,11 @@
     {
       "id": "ee9b",
       "title": "testtask",
-      "description": "12",
-      "deadline": "2024-04-27T22:00:00.000Z",
+      "description": "description",
+      "deadline": "2024-04-29T22:00:00.000Z",
       "priority": true,
       "status": "TESTING",
       "assignee": "Jane Doe"
-    },
-    {
-      "id": "bb18",
-      "title": "tasktest",
-      "description": "No description",
-      "deadline": "2024-04-28T22:00:00.000Z",
-      "priority": false,
-      "status": "DONE",
-      "assignee": "John Doe"
     }
   ],
   "users": [

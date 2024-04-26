@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-
 import { TaskItemComponent } from '../task-item/task-item.component';
 import { TaskService } from '../../services/task.service';
-
 import { Task } from '../../TaskInterface';
 import { STATUS_NAMES } from '../../status.constants';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.scss',
   standalone: true,
   imports: [
     CommonModule,
@@ -23,6 +19,8 @@ import { FormsModule } from '@angular/forms';
     TaskItemComponent,
   ],
   providers: [DatePipe],
+  templateUrl: './tasks.component.html',
+  styleUrl: './tasks.component.scss',
 })
 
 export class TasksComponent implements OnInit {
@@ -32,7 +30,7 @@ export class TasksComponent implements OnInit {
   filter: string = 'status'; // filter by default === status
   filteredTasks: { [key: string]: Task[] } = {}; // Object to store tasks filtered by key
   columnNumber: number = 0; // display X columns of tasks by filter
-  keys = Object.keys;
+  keys = Object.keys; // keys for displaying the columns
 
   constructor(
     private taskService: TaskService,
@@ -92,7 +90,6 @@ export class TasksComponent implements OnInit {
 
   togglePriority(task: Task) {
     task.priority = !task.priority;
-    console.log(task.priority);
     this.taskService.togglePriority(task)
       .subscribe();
   };
@@ -100,8 +97,8 @@ export class TasksComponent implements OnInit {
   isDeadlineFilter(): boolean {
     return this.filter === 'deadline';
   };
+
   formatDate(deadline: string): string {
     return this.datePipe.transform(deadline, 'dd.MM.yy') || '';
   };
-
 };
