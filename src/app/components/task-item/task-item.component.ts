@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Task } from '../../TaskInterface';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
     CommonModule,
     MatIconModule,
   ],
+  providers: [DatePipe],
 })
 
 export class TaskItemComponent implements OnInit {
@@ -21,8 +22,15 @@ export class TaskItemComponent implements OnInit {
   @Output() deleteTask: EventEmitter<Task> = new EventEmitter();
   @Output() togglePriority: EventEmitter<Task> = new EventEmitter();
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private datePipe: DatePipe,
+  ) { }
   ngOnInit(): void { }
+
+  formatDeadline(deadline: string): string {
+    return this.datePipe.transform(deadline, 'dd.MM.yy') || '';
+  }
 
   handleDeleteTask(task: Task) {
     console.log('delete ' + task.title);

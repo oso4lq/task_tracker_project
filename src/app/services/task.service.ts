@@ -30,9 +30,6 @@ export class TaskService {
     return this.http.get<Task>(url);
   };
 
-  // getUsers(): Observable<User[]> {
-  //   return this.http.get<User[]>(this.API_URL_USERS);
-  // }
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.API_URL_USERS);
   }

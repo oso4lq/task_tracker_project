@@ -37,6 +37,9 @@ export class TasksComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
+    const storedFilter = localStorage.getItem('filter');
+    this.filter = storedFilter || 'status';
+
     this.taskService.getTasks()
       .subscribe((tasks) => {
         this.tasks = tasks;
@@ -46,6 +49,7 @@ export class TasksComponent implements OnInit {
 
   filterTasks(): void {
     this.filteredTasks = {};
+    localStorage.setItem('filter', this.filter);
     switch (this.filter) {
       case 'status':
         this.statusNames.forEach(status => {

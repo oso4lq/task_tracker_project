@@ -90,7 +90,7 @@ export class TaskDetailComponent implements OnInit {
       this.editMode = false;
     });
     this.router.navigate(['/home']);
-  }
+  };
 
   handleDeleteTask(task: Task) {
     console.log('delete ' + task.title);

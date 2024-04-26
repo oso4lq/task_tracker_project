@@ -64,15 +64,17 @@ export class AddTaskComponent implements OnInit {
     if (!this.title) {
       alert('Please add a task');
       return;
-    }
+    };
+
+    // const formattedDeadline = new Date(this.deadline);
 
     const newTask = {
       title: this.title,
-      description: this.description,
+      description: this.description || 'No description',
       deadline: this.deadline,
       priority: this.priority,
-      status: this.status,
-      assignee: this.assignee,
+      status: this.status || 'TO DO',
+      assignee: this.assignee || 'Unassigned',
     };
 
     console.log('added task');

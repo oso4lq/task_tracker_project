@@ -1,39 +1,44 @@
-<div class="form-control form-control-check">
-    <legend>Filter by:</legend>
-    <div>
-        <label for="stasus">status</label>
-        <input type="radio" name="filter" id="status" value="status" [(ngModel)]="filter"
-            (change)="onFilterChange('status')">
-    </div>
-    <div>
-        <label for="stasus">assignee</label>
-        <input type="radio" name="filter" id="assignee" value="assignee" [(ngModel)]="filter"
-            (change)="onFilterChange('assignee')">
-    </div>
-    <div>
-        <label for="stasus">deadline</label>
-        <input type="radio" name="filter" id="deadline" value="deadline" [(ngModel)]="filter"
-            (change)="onFilterChange('deadline')">
-    </div>
-</div>
+<header class="header">
 
-<div class="statusColumns">
-    <div *ngFor="let filterValue of keys(filteredTasks)" class="taskColumn">
-        <h3>{{ filterValue }}</h3>
-        <app-task-item *ngFor="let task of filteredTasks[filterValue]" [task]="task" (deleteTask)="deleteTask(task)"
-            (togglePriority)="togglePriority(task)">
+    <div class="filter">
+        <div class="filter__title">Filter by:</div>
+        <div class="filter__btnbox">
+            <div class="btnInput">
+                <input id="status" type="radio" name="radio" value="status" [(ngModel)]="filter"
+                    (change)="onFilterChange('status')">
+                <label for="status">status</label>
+            </div>
+            <div class="btnInput">
+                <input id="assignee" type="radio" name="radio" value="assignee" [(ngModel)]="filter"
+                    (change)="onFilterChange('assignee')">
+                <label for="assignee">assignee</label>
+            </div>
+            <div class="btnInput">
+                <input id="deadline" type="radio" name="radio" value="deadline" [(ngModel)]="filter"
+                    (change)="onFilterChange('deadline')">
+                <label for="deadline">deadline</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="hints">
+        <div class="hints__title">Hints:</div>
+        <div class="hints__content">
+            <div class="hints__item">&#8269; Double-click on the task to edit it.</div>
+            <div class="hints__item">&#8269; Click on the bolt icon to toggle priority.</div>
+            <div class="hints__item">&#8269; Click on the trash icon to delete the task.</div>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="taskColumns">
+    <div *ngFor="let filterValue of keys(filteredTasks)" class="taskColumns__item">
+        <h3 class="taskColumns__title">{{ filterValue }}</h3>
+        <app-task-item class="taskColumns__component" *ngFor="let task of filteredTasks[filterValue]" [task]="task"
+            (deleteTask)="deleteTask(task)" (togglePriority)="togglePriority(task)">
             <mat-divider></mat-divider>
         </app-task-item>
     </div>
 </div>
-
-<!-- 
-    <app-task-item 
-    *ngFor="let task of tasks" 
-    [task]="task" 
-    (deleteTask)="deleteTask(task)"
-    (togglePriority)="togglePriority(task)"
->
-<mat-divider></mat-divider>
-</app-task-item> 
--->

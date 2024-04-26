@@ -1,7 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+// D8BFD8
+// f5f5f5
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5;
+}
 
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
@@ -12,67 +21,140 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding: 0;
 }
 
-.container {
-  max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
-}
-.btn {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-}
-.btn:focus {
-  outline: none;
-}
-.btn:active {
-  transform: scale(0.98);
+.taskContainer {
+  width: 100vw;
+  padding: 30px 0px;
+
+  &__title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+  }
 }
 
-.btn-block {
-  display: block;
-  width: 100%;
-}
-
-.form-control {
-  margin: 20px 0;
-}
-
-.form-control label {
-  display: block;
-}
-
-.form-control input {
-  width: 100%;
-  height: 40px;
-  margin: 5px;
-  padding: 3px 7px;
-  font-size: 17px;
-}
-
-.form-control-check {
+.taskForm {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
+  &__column {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px 0px;
+    padding: 0px 20px;
+    width: 100%;
+
+    &_check {
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+    &_btn {
+      width: 120px;
+      display: inline-block;
+      background: #673ab7;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0px 0px 10px 0px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 15px;
+      font-family: inherit;
+      font-weight: bold;
+      align-items: center;
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-left: 12px;
+
+    &_check {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 40px;
+    margin: 5px;
+    padding: 3px 7px;
+    font-size: 14px;
+
+    &_textarea {
+      height: 260px;
+      padding: 6px 8px;
+      font-family: inherit;
+    }
+
+    &_date {
+      width: 50%;
+    }
+  }
+
+  &__dateBox {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__statusBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+  }
 }
 
-.form-control-check label {
-  flex: 1;
-}
+.btnInput {
+  display: inline-block;
+  margin-right: 10px;
 
-.form-control-check input {
-  flex: 2;
-  height: 20px;
+  &_task {
+    width: 100%;
+    text-align: center;
+  }
+
+  input[type=radio] {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0px 15px;
+    line-height: 34px;
+    border: 1px solid #999;
+    background-color: #D8BFD8;
+    border-radius: 6px;
+    user-select: none;
+  }
+
+  label:hover {
+    color: #666;
+  }
+
+  input[type=radio]:checked+label {
+    background: #673ab7;
+    color: #fff;
+  }
+
 }

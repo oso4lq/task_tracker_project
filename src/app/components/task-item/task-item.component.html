@@ -1,15 +1,26 @@
-<div [ngClass]="{ reminder: task.priority }" class="task" (dblclick)="handleTaskClick(task)">
+<div [ngClass]="{ priority: task.priority}" class="taskItem" (dblclick)="handleTaskClick(task)">
 
-    <h3>{{task.title}}
-        <mat-icon (click)="handlePriority(task)">bolt</mat-icon>
-        <mat-icon (click)="handleDeleteTask(task)">delete</mat-icon>
-    </h3>
+    <div class="taskItem__header">
+        <div class="taskItem__icons">
+            <mat-icon (click)="handlePriority(task)">bolt</mat-icon>
+        </div>
+        <div class="taskItem__title">{{task.title}}</div>
+        <div class="taskItem__icons">
+            <mat-icon (click)="handleDeleteTask(task)">delete</mat-icon>
+        </div>
+    </div>
 
-    <p>{{task.description}}</p>
+    <p class="taskItem__description">{{task.description}}</p>
 
-    <div class="task_footer">
-        <p>Assignee: {{task.assignee}}</p>
-        <p>Deadline: {{task.deadline}}</p>
+    <div class="task__grid">
+        <div class="task__bottom">
+            <p class="task__p">Assignee:</p>
+            <p class="task__p">{{task.assignee}}</p>
+        </div>
+        <div class="task__bottom">
+            <p class="task__p">Deadline:</p>
+            <p class="task__p">{{formatDeadline(task.deadline)}}</p>
+        </div>
     </div>
 
 </div>

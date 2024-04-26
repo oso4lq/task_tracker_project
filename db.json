@@ -33,7 +33,7 @@
       "description": "style the project",
       "deadline": "2024-04-25T22:00:00.000Z",
       "priority": true,
-      "status": "TO DO",
+      "status": "IN PROCESS",
       "assignee": "Authorized Osetr"
     },
     {
@@ -48,10 +48,19 @@
     {
       "id": "aef7",
       "title": "Add small features",
-      "description": "Format date, set to localstorage (filter and everything else)",
+      "description": "set tasks to localstorage\n\nexport reusables, bolt, date sort",
       "deadline": "2024-04-25T22:00:00.000Z",
-      "priority": false,
+      "priority": true,
       "status": "IN PROCESS",
+      "assignee": "Authorized Osetr"
+    },
+    {
+      "id": "4f04",
+      "title": "new task",
+      "description": "descr",
+      "deadline": "2024-04-28T22:00:00.000Z",
+      "priority": false,
+      "status": "TESTING",
       "assignee": "Authorized Osetr"
     }
   ],
