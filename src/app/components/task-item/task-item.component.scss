@@ -14,6 +14,7 @@
   &__title {
     display: flex;
     justify-content: center;
+    text-align: center;
     font-size: 18px;
     font-weight: bold;
     width: 80%;
@@ -29,31 +30,29 @@
     margin: 20px 0;
   }
 
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-items: end;
+    justify-items: center;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__p {
+    margin: 2px 0;
+  }
+
 }
 
 .taskItem.priority {
   background-color: #FFFAD3;
 }
 
-
-// .task_footer {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-.task__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); // 2 columns with equal width
-  gap: 10px; // Gap between grid items
-  align-items: end;
-  justify-items: center;
-}
-
-.task__bottom {
-  display: flex;
-  flex-direction: column; // Stack elements vertically
-}
-
-.task__p {
-  margin: 2px 0;
+.material-icons.color_red {
+  color: #ff1616;
 }

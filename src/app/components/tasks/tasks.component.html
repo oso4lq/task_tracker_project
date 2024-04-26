@@ -35,7 +35,7 @@
 
 <div class="taskColumns">
     <div *ngFor="let filterValue of keys(filteredTasks)" class="taskColumns__item">
-        <h3 class="taskColumns__title">{{ filterValue }}</h3>
+        <h3 class="taskColumns__title">{{ isDeadlineFilter() ? formatDate(filterValue) : filterValue }}</h3>
         <app-task-item class="taskColumns__component" *ngFor="let task of filteredTasks[filterValue]" [task]="task"
             (deleteTask)="deleteTask(task)" (togglePriority)="togglePriority(task)">
             <mat-divider></mat-divider>

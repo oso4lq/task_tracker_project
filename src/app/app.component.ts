@@ -27,8 +27,6 @@ import { MatDividerModule } from '@angular/material/divider';
     MatToolbarModule,
     MatIconModule,
     MatDividerModule,
-
-    // add lazy loading of other pages?
   ],
 })
 

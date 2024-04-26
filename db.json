@@ -40,7 +40,7 @@
       "id": "7c88",
       "title": "send the project",
       "description": "send the perfect project to the company",
-      "deadline": "2024-04-25T22:00:00.000Z",
+      "deadline": "2024-04-26T22:00:00.000Z",
       "priority": true,
       "status": "TO DO",
       "assignee": "Authorized Osetr"
@@ -55,13 +55,22 @@
       "assignee": "Authorized Osetr"
     },
     {
-      "id": "4f04",
-      "title": "new task",
-      "description": "descr",
+      "id": "ee9b",
+      "title": "testtask",
+      "description": "12",
+      "deadline": "2024-04-27T22:00:00.000Z",
+      "priority": true,
+      "status": "TESTING",
+      "assignee": "Jane Doe"
+    },
+    {
+      "id": "bb18",
+      "title": "tasktest",
+      "description": "No description",
       "deadline": "2024-04-28T22:00:00.000Z",
       "priority": false,
-      "status": "TESTING",
-      "assignee": "Authorized Osetr"
+      "status": "DONE",
+      "assignee": "John Doe"
     }
   ],
   "users": [
@@ -69,19 +78,22 @@
       "id": "1",
       "name": "Authorized Osetr",
       "email": "osetr@fish.com",
-      "role": "admin"
+      "role": "admin",
+      "password": "admin"
     },
     {
       "id": "2",
       "name": "Jane Doe",
       "email": "jane.doe@mail.mail",
-      "role": "user"
+      "role": "user",
+      "password": "jane"
     },
     {
       "id": "3",
       "name": "John Doe",
       "email": "john.doe@mail.mail",
-      "role": "user"
+      "role": "user",
+      "password": "john"
     }
   ]
 }

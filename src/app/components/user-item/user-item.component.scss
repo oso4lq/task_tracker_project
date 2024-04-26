@@ -1,0 +1,22 @@
+.user {
+    display: flex;
+    flex-direction: column;
+      justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 200px;
+    padding: 10px;
+    background: #DED0F6;
+    border: 2px solid #673ab7;
+    border-radius: 5px;
+
+    &__name {
+        font-size: 18px;
+        text-align: center;
+        width: 80%;
+    }
+    &__p {
+        font-size: 14px;
+        margin: 4px 0;
+    }
+}

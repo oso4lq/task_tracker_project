@@ -1,6 +1,6 @@
-<div class="taskContainer">
+<div class="container">
 
-    <h1 class="taskContainer__title">{{ task.title }}</h1>
+    <h1 class="container__title">{{ task.title }}</h1>
 
     <div class="taskForm" *ngIf="task">
 
@@ -47,8 +47,8 @@
                         <label class="btnInput_task" for="to-do">To do</label>
                     </div>
                     <div class="btnInput">
-                        <input type="radio" name="radio" id="in-process" value="IN PROCESS"
-                            [(ngModel)]="selectedStatus" [disabled]="!editMode">
+                        <input type="radio" name="radio" id="in-process" value="IN PROCESS" [(ngModel)]="selectedStatus"
+                            [disabled]="!editMode">
                         <label class="btnInput_task" for="in-process">In process</label>
                     </div>
                     <div class="btnInput">

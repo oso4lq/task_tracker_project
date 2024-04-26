@@ -18,6 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
   ],
+  // providers: [DatePipe],
 })
 
 export class AddTaskComponent implements OnInit {
@@ -42,6 +43,7 @@ export class AddTaskComponent implements OnInit {
   constructor(
     private router: Router,
     private taskService: TaskService,
+    // private datePipe: DatePipe,
   ) { };
 
   ngOnInit(): void {
@@ -66,8 +68,9 @@ export class AddTaskComponent implements OnInit {
       return;
     };
 
-    // const formattedDeadline = new Date(this.deadline);
-
+    // const formattedDeadline = this.datePipe.transform(this.deadline, 'yyyy-MM-dd');
+    console.log(this.deadline);
+    
     const newTask = {
       title: this.title,
       description: this.description || 'No description',

@@ -1,6 +1,6 @@
-<div class="taskContainer">
+<div class="container">
 
-    <h1 class="taskContainer__title">Create new task</h1>
+    <h1 class="container__title">Create new task</h1>
 
     <form class="taskForm" (ngSubmit)="onSubmit()">
 
@@ -26,8 +26,8 @@
             <div class="taskForm__item">
                 <label class="taskForm__label" for="deadline">Deadline</label>
                 <div class="taskForm__dateBox">
-                    <input class="taskForm__input taskForm__input_date" matInput [matDatepicker]="deadlinePicker"
-                        placeholder="select deadline" readonly [(ngModel)]="deadline">
+                    <input name="deadline" class="taskForm__input taskForm__input_date" matInput
+                        [matDatepicker]="deadlinePicker" placeholder="select deadline" [(ngModel)]="deadline" readonly>
                     <mat-datepicker-toggle matSuffix [for]="deadlinePicker"></mat-datepicker-toggle>
                     <mat-datepicker #deadlinePicker></mat-datepicker>
                 </div>

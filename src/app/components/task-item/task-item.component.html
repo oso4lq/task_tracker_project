@@ -2,7 +2,7 @@
 
     <div class="taskItem__header">
         <div class="taskItem__icons">
-            <mat-icon (click)="handlePriority(task)">bolt</mat-icon>
+            <mat-icon [ngClass]="{ color_red: task.priority}" (click)="handlePriority(task)">bolt</mat-icon>
         </div>
         <div class="taskItem__title">{{task.title}}</div>
         <div class="taskItem__icons">
@@ -12,14 +12,14 @@
 
     <p class="taskItem__description">{{task.description}}</p>
 
-    <div class="task__grid">
-        <div class="task__bottom">
-            <p class="task__p">Assignee:</p>
-            <p class="task__p">{{task.assignee}}</p>
+    <div class="taskItem__grid">
+        <div class="taskItem__bottom">
+            <p class="taskItem__p">Assignee:</p>
+            <p class="taskItem__p">{{task.assignee}}</p>
         </div>
-        <div class="task__bottom">
-            <p class="task__p">Deadline:</p>
-            <p class="task__p">{{formatDeadline(task.deadline)}}</p>
+        <div class="taskItem__bottom">
+            <p class="taskItem__p">Deadline:</p>
+            <p class="taskItem__p">{{formatDeadline(task.deadline)}}</p>
         </div>
     </div>
 

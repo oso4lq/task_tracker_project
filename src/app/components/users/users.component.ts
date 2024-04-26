@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../TaskInterface';
 import { UserItemComponent } from '../user-item/user-item.component';
 import { CommonModule } from '@angular/common';
-import { UserService } from '../../services/user.service';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-users',
@@ -18,12 +18,10 @@ export class UsersComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.userService.getUsers()
-      .subscribe((users) => this.users = this.users);
-      console.log(this.users);
-  };
-
+    this.taskService.getUsers()
+      .subscribe(users => this.users = users);
+  }
 }

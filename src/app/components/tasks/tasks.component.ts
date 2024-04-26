@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -22,24 +22,26 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     TaskItemComponent,
   ],
+  providers: [DatePipe],
 })
 
 export class TasksComponent implements OnInit {
 
   tasks: Task[] = [];
-  statusNames: string[] = STATUS_NAMES;
+  statusNames: string[] = STATUS_NAMES; // imported from status.constants.ts
   filter: string = 'status'; // filter by default === status
   filteredTasks: { [key: string]: Task[] } = {}; // Object to store tasks filtered by key
-
   columnNumber: number = 0; // display X columns of tasks by filter
   keys = Object.keys;
 
-  constructor(private taskService: TaskService) { }
+  constructor(
+    private taskService: TaskService,
+    private datePipe: DatePipe,
+  ) { }
 
   ngOnInit(): void {
     const storedFilter = localStorage.getItem('filter');
     this.filter = storedFilter || 'status';
-
     this.taskService.getTasks()
       .subscribe((tasks) => {
         this.tasks = tasks;
@@ -93,6 +95,13 @@ export class TasksComponent implements OnInit {
     console.log(task.priority);
     this.taskService.togglePriority(task)
       .subscribe();
+  };
+
+  isDeadlineFilter(): boolean {
+    return this.filter === 'deadline';
+  };
+  formatDate(deadline: string): string {
+    return this.datePipe.transform(deadline, 'dd.MM.yy') || '';
   };
 
 };
