@@ -1,22 +1,78 @@
 {
   "tasks": [
     {
+      "id": "1",
+      "title": "make a draft",
+      "description": "make a draft of the project",
+      "deadline": "2024-04-23T22:00:00.000Z",
+      "priority": false,
+      "status": "DONE",
+      "assignee": "Authorized Osetr"
+    },
+    {
       "id": "2",
-      "text": "Meeting at School",
-      "day": "May 6th at 1:30pm",
-      "reminder": true
+      "title": "make and link the pages",
+      "description": "MAKE MAIN PAGES:\nHome, New Task, BrowseEdit",
+      "deadline": "2024-04-25T22:00:00.000Z",
+      "priority": false,
+      "status": "DONE",
+      "assignee": "Authorized Osetr"
     },
     {
       "id": "3",
-      "text": "Food Shopping",
-      "day": "May 7th at 12:30pm",
-      "reminder": false
+      "title": "extra functionality",
+      "description": "Filters, Users from API, Task editing, ",
+      "deadline": "2024-04-25T22:00:00.000Z",
+      "priority": false,
+      "status": "DONE",
+      "assignee": "Authorized Osetr"
     },
     {
-      "id": "c48d",
-      "text": "dam",
-      "day": "",
-      "reminder": true
+      "id": "4",
+      "title": "styling",
+      "description": "style the project",
+      "deadline": "2024-04-25T22:00:00.000Z",
+      "priority": true,
+      "status": "TO DO",
+      "assignee": "Authorized Osetr"
+    },
+    {
+      "id": "7c88",
+      "title": "send the project",
+      "description": "send the perfect project to the company",
+      "deadline": "2024-04-25T22:00:00.000Z",
+      "priority": true,
+      "status": "TO DO",
+      "assignee": "Authorized Osetr"
+    },
+    {
+      "id": "aef7",
+      "title": "Add small features",
+      "description": "Format date, set to localstorage (filter and everything else)",
+      "deadline": "2024-04-25T22:00:00.000Z",
+      "priority": false,
+      "status": "IN PROCESS",
+      "assignee": "Authorized Osetr"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Authorized Osetr",
+      "email": "osetr@fish.com",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Jane Doe",
+      "email": "jane.doe@mail.mail",
+      "role": "user"
+    },
+    {
+      "id": "3",
+      "name": "John Doe",
+      "email": "john.doe@mail.mail",
+      "role": "user"
     }
   ]
 }

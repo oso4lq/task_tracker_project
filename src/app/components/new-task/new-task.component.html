@@ -1,9 +1,3 @@
-<p>new-task works!</p>
+<h2>Create New Task</h2>
 
-<!-- new-task.component.html -->
-<div class="container">
-    <h2>Create New Task</h2>
-    <!-- Include the AddTaskComponent here -->
-    <app-add-task></app-add-task>
-    <!-- Additional HTML elements for the new task creation page -->
-  </div>
+<app-add-task (addTask)="addTask($event)"></app-add-task>

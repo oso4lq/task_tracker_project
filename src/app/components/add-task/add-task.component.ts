@@ -1,9 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Task } from '../../TaskInterface';
-import { UiService } from '../../services/ui.service';
-import { Subscription } from 'rxjs';
+import { Task, User } from '../../TaskInterface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TaskService } from '../../services/task.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-add-task',
@@ -13,41 +15,64 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 
 export class AddTaskComponent implements OnInit {
 
+  assignees: User[] = []; // Initialize with an empty array of User objects
+
   @Output() addTask: EventEmitter<Task> = new EventEmitter();
 
-  text: string = '';
-  day: string = '';
-  reminder: boolean = false;
-  subscription: Subscription;
-  showAddTask: boolean = false;
+  title: string = '';
+  description: string = '';
+  deadline: string = '';
+  priority: boolean = false;
+  status: string = '';
+  // assignee: Array<Assignee> = [{
+  //   id: null,
+  //   name: '',
+  //   email: '',
+  //   role: '',
+  // }];
+  assignee: string = '';
 
-  constructor(private uiService: UiService) {
-    this.subscription = this.uiService.onToggle()
-      .subscribe((value) => this.showAddTask = value);
-  };
+  constructor(
+    private router: Router,
+    private taskService: TaskService,
+  ) { };
 
   ngOnInit(): void {
-    this.subscription = this.uiService.onToggle().subscribe();
+    this.fetchAssignees();
   };
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+
+  fetchAssignees(): void {
+    // Fetch assignees from the API
+    this.taskService.getUsers().subscribe(
+      (users: User[]) => {
+        this.assignees = users;
+      },
+      (error) => {
+        console.error('Error fetching assignees:', error);
+      }
+    );
   };
 
   onSubmit() {
-    if (!this.text) {
+    if (!this.title) {
       alert('Please add a task');
       return;
     }
 
     const newTask = {
-      text: this.text,
-      day: this.day,
-      reminder: this.reminder
+      title: this.title,
+      description: this.description,
+      deadline: this.deadline,
+      priority: this.priority,
+      status: this.status,
+      assignee: this.assignee,
     };
 
     console.log('added task');
@@ -55,9 +80,14 @@ export class AddTaskComponent implements OnInit {
 
     this.addTask.emit(newTask);
 
-    this.text = '';
-    this.day = '';
-    this.reminder = false;
+    this.title = '';
+    this.description = '';
+    this.deadline = '';
+    this.priority = false;
+    this.status = '';
+    this.assignee = '';
+
+    this.router.navigate(['/home']);
   };
 
 };

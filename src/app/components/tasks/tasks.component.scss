@@ -1,0 +1,24 @@
+.statusColumns {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.taskColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    margin: 10px;
+    width: 100%;
+    min-height: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
