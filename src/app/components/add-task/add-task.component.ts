@@ -1,9 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { User, Task } from '../../TaskInterface';
-import { UiService } from '../../services/ui.service';
-import { Subscription } from 'rxjs';
+import { Task, User } from '../../TaskInterface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TaskService } from '../../services/task.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-add-task',
@@ -13,10 +15,14 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 
 export class AddTaskComponent implements OnInit {
+
+  assignees: User[] = []; // Initialize with an empty array of User objects
 
   @Output() addTask: EventEmitter<Task> = new EventEmitter();
 
@@ -32,19 +38,26 @@ export class AddTaskComponent implements OnInit {
   //   role: '',
   // }];
   assignee: string = '';
-  subscription: Subscription;
-  showAddTask: boolean = false;
 
-  constructor(private uiService: UiService) {
-    this.subscription = this.uiService.onToggle()
-      .subscribe((value) => this.showAddTask = value);
-  };
+  constructor(
+    private router: Router,
+    private taskService: TaskService,
+  ) { };
 
   ngOnInit(): void {
-    this.subscription = this.uiService.onToggle().subscribe();
+    this.fetchAssignees();
   };
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+
+  fetchAssignees(): void {
+    // Fetch assignees from the API
+    this.taskService.getUsers().subscribe(
+      (users: User[]) => {
+        this.assignees = users;
+      },
+      (error) => {
+        console.error('Error fetching assignees:', error);
+      }
+    );
   };
 
   onSubmit() {
@@ -73,6 +86,8 @@ export class AddTaskComponent implements OnInit {
     this.priority = false;
     this.status = '';
     this.assignee = '';
+
+    this.router.navigate(['/home']);
   };
 
 };

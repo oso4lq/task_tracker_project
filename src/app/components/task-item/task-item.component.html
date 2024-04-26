@@ -1,6 +1,7 @@
-<div [ngClass]="{ reminder: task.priority }" class="task" (dblclick)="handlePriority(task)">
+<div [ngClass]="{ reminder: task.priority }" class="task" (dblclick)="handleTaskClick(task)">
 
     <h3>{{task.title}}
+        <mat-icon (click)="handlePriority(task)">bolt</mat-icon>
         <mat-icon (click)="handleDeleteTask(task)">delete</mat-icon>
     </h3>
 

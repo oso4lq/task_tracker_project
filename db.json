@@ -4,46 +4,55 @@
       "id": "1",
       "title": "make a draft",
       "description": "make a draft of the project",
-      "deadline": "24.04.",
-      "priority": true,
+      "deadline": "2024-04-23T22:00:00.000Z",
+      "priority": false,
       "status": "DONE",
-      "assignee": "Osetr"
+      "assignee": "Authorized Osetr"
     },
     {
       "id": "2",
       "title": "make and link the pages",
-      "description": "make the pages and link them",
-      "deadline": "25.04.",
+      "description": "MAKE MAIN PAGES:\nHome, New Task, BrowseEdit",
+      "deadline": "2024-04-25T22:00:00.000Z",
       "priority": false,
-      "status": "IN PROCESS",
-      "assignee": "Osetr"
+      "status": "DONE",
+      "assignee": "Authorized Osetr"
     },
     {
       "id": "3",
       "title": "extra functionality",
-      "description": "add extra functionality",
-      "deadline": "25.04.",
+      "description": "Filters, Users from API, Task editing, ",
+      "deadline": "2024-04-25T22:00:00.000Z",
       "priority": false,
-      "status": "IN PROCESS",
-      "assignee": "Osetr"
+      "status": "DONE",
+      "assignee": "Authorized Osetr"
     },
     {
       "id": "4",
       "title": "styling",
       "description": "style the project",
-      "deadline": "26.04.",
-      "priority": false,
+      "deadline": "2024-04-25T22:00:00.000Z",
+      "priority": true,
       "status": "TO DO",
-      "assignee": "Osetr"
+      "assignee": "Authorized Osetr"
     },
     {
       "id": "7c88",
       "title": "send the project",
       "description": "send the perfect project to the company",
-      "deadline": "27.04",
-      "priority": false,
+      "deadline": "2024-04-25T22:00:00.000Z",
+      "priority": true,
       "status": "TO DO",
-      "assignee": "Osetr"
+      "assignee": "Authorized Osetr"
+    },
+    {
+      "id": "aef7",
+      "title": "Add small features",
+      "description": "Format date, set to localstorage (filter and everything else)",
+      "deadline": "2024-04-25T22:00:00.000Z",
+      "priority": false,
+      "status": "IN PROCESS",
+      "assignee": "Authorized Osetr"
     }
   ],
   "users": [

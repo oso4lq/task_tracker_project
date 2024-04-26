@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Task } from '../../TaskInterface';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-item',
@@ -20,7 +21,7 @@ export class TaskItemComponent implements OnInit {
   @Output() deleteTask: EventEmitter<Task> = new EventEmitter();
   @Output() togglePriority: EventEmitter<Task> = new EventEmitter();
 
-  constructor() { }
+  constructor(private router: Router) { }
   ngOnInit(): void { }
 
   handleDeleteTask(task: Task) {
@@ -31,6 +32,11 @@ export class TaskItemComponent implements OnInit {
   handlePriority(task: Task) {
     console.log('priority ' + task.title);
     this.togglePriority.emit(task);
+  };
+
+  handleTaskClick(task: Task) {
+    console.log('task click ' + task.title);
+    this.router.navigate(['/browse-task', task.id]);
   };
 
 };
