@@ -24,6 +24,8 @@ Each task includes properties:
 
 Angular, Angular Material, SCSS, TypeScript, RxJs.
 
+## Demonstration
+![](https://github.com/oso4lq/task_tracker_project/blob/master/task%20tracker%20project%20gif.gif)
 
 ## Development server
 
