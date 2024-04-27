@@ -1,8 +1,6 @@
-<p>users works!</p>
-
 <div class="container">
-    <app-user-item *ngFor="let user of users" [user]="user">
-        <p>some</p>
-    </app-user-item>
-    <app-user-item></app-user-item>
+    <h1 class="container__title">Users list</h1>
+    <div class="usersGrid">
+        <app-user-item *ngFor="let user of users" [user]="user"></app-user-item>
+    </div>
 </div>

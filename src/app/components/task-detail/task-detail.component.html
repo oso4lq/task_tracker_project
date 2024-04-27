@@ -1,65 +1,89 @@
 <div class="container">
-    <div *ngIf="task">
-        <h2>{{ task.title }}</h2>
-        <!-- DESCRIPTION -->
-        <div class="form-control">
-            <label for="description">Description</label>
-            <textarea class="textarea" name="description" id="description" placeholder="add task description"
-                [(ngModel)]="task.description" [disabled]="!editMode"></textarea>
-        </div>
-        <!-- DEADLINE -->
-        <div class="form-control">
-            <label for="deadline">Deadline</label>
-            <label for="deadline">Deadline</label>
-            <input matInput [matDatepicker]="deadlinePicker" placeholder="Select deadline" [(ngModel)]="task.deadline" readonly [disabled]="!editMode">
-            <mat-datepicker-toggle matSuffix [for]="deadlinePicker"></mat-datepicker-toggle>
-            <mat-datepicker #deadlinePicker></mat-datepicker>
-            <!-- <input type="text" name="deadline" id="deadline" placeholder="select the deadline"
-                [(ngModel)]="task.deadline" [disabled]="!editMode"> -->
-        </div>
-        <!-- PRIORITY -->
-        <div class="form-control form-control-check">
-            <label for="priority">Is this task a priority?</label>
-            <input type="checkbox" name="priority" id="priority" [(ngModel)]="task.priority" [disabled]="!editMode">
-        </div>
-        <!-- STATUS -->
-        <div class="form-control form-control-check">
-            <legend>Choose Status</legend>
-            <div>
-                <label for="status-to-do">To Do</label>
-                <input type="radio" name="status" id="to-do" value="TO DO" [(ngModel)]="selectedStatus" [disabled]="!editMode">
+
+    <h1 class="container__title">{{ task.title }}</h1>
+
+    <div class="taskForm" *ngIf="task">
+        <div class="taskForm__column">
+            <!-- TITLE -->
+            <div class="taskForm__item">
+                <label class="taskForm__label" for="title">Task name</label>
+                <h2 class="taskTitle">{{ task.title }}</h2>
             </div>
-            <div>
-                <label for="status-in-process">In Process</label>
-                <input type="radio" name="status" id="in-processs" value="IN PROCESS" [(ngModel)]="selectedStatus"
+
+            <!-- DESCRIPTION -->
+            <div class="taskForm__item">
+                <label class="taskForm__label" for="description">Task description</label>
+                <textarea class="taskForm__input taskForm__input_textarea" name="description" id="description"
+                    placeholder="add task description" [(ngModel)]="task.description" [disabled]="!editMode"></textarea>
+            </div>
+        </div>
+
+        <div class="taskForm__column">
+            <!-- DEADLINE -->
+            <div class="taskForm__item">
+                <label class="taskForm__label" for="deadline">Deadline</label>
+                <div class="taskForm__dateBox">
+                    <input class="taskForm__input taskForm__input_date" matInput [matDatepicker]="deadlinePicker"
+                        placeholder="Select deadline" [(ngModel)]="task.deadline" readonly [disabled]="!editMode">
+                    <mat-datepicker-toggle matSuffix [for]="deadlinePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #deadlinePicker></mat-datepicker>
+                </div>
+            </div>
+
+            <!-- PRIORITY -->
+            <div class="taskForm__item taskForm__item_check">
+                <label class="taskForm__label taskForm__label_check" for="priority">Is this task a priority?</label>
+                <input type="checkbox" name="priority" id="priority" [(ngModel)]="task.priority" [disabled]="!editMode">
+            </div>
+
+            <!-- STATUS -->
+            <div class="taskForm__item taskForm__item_status">
+                <legend class="taskForm__label">Choose status</legend>
+                <div class="taskForm__statusBox">
+                    <div class="btnInput">
+                        <input type="radio" name="radio" id="to-do" value="TO DO" [(ngModel)]="selectedStatus"
+                            [disabled]="!editMode">
+                        <label class="btnInput_task" for="to-do">To do</label>
+                    </div>
+                    <div class="btnInput">
+                        <input type="radio" name="radio" id="in-process" value="IN PROCESS" [(ngModel)]="selectedStatus"
+                            [disabled]="!editMode">
+                        <label class="btnInput_task" for="in-process">In process</label>
+                    </div>
+                    <div class="btnInput">
+                        <input type="radio" name="radio" id="testing" value="TESTING" [(ngModel)]="selectedStatus"
+                            [disabled]="!editMode">
+                        <label class="btnInput_task" for="testing">Testing</label>
+                    </div>
+                    <div class="btnInput">
+                        <input type="radio" name="radio" id="done" value="DONE" [(ngModel)]="selectedStatus"
+                            [disabled]="!editMode">
+                        <label class="btnInput_task" for="done">Done</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ASSIGNEE -->
+            <div class="taskForm__item">
+                <label class="taskForm__label" for="assignee">Assignee</label>
+                <select class="taskForm__input" name="assignee" id="assignee" [(ngModel)]="task.assignee"
                     [disabled]="!editMode">
+                    <option value="">-- The Unchosen Assignee --</option>
+                    <option *ngFor="let assignee of assignees" [value]="assignee.name">{{ assignee.name }}</option>
+                </select>
             </div>
-            <div>
-                <label for="status-testing">Testing</label>
-                <input type="radio" name="status" id="testing" value="TESTING" [(ngModel)]="selectedStatus"
-                    [disabled]="!editMode">
+
+            <!-- EDIT BUTTONS -->
+            <div class="functionalButtons">
+                <div class="functionalButtons__actions">
+                    <button mat-raised-button color="primary"
+                        (click)="editMode ? handleSaveTask() : handleEditTask(task)">
+                        {{ editMode ? 'Save' : 'Edit' }}
+                    </button>
+                    <button mat-raised-button color="warn" (click)="handleDeleteTask(task)">Delete</button>
+                </div>
+                <button mat-raised-button color="basic" (click)="handleReturnHome()">Back</button>
             </div>
-            <div>
-                <label for="status-done">Done</label>
-                <input type="radio" name="status" id="done" value="DONE" [(ngModel)]="selectedStatus" [disabled]="!editMode">
-            </div>
-        </div>
-        <!-- ASSIGNEE -->
-        <div class="form-control">
-            <label for="assignee">Assignee</label>
-            <select name="assignee" id="assignee" [(ngModel)]="task.assignee" [disabled]="!editMode">
-                <option value="">-- The Unchosen Assignee --</option>
-                <option *ngFor="let assignee of assignees" [value]="assignee.name">{{ assignee.name }}</option>
-            </select>
-        </div>
-        <div>
-            <div>
-                <button mat-raised-button color="primary" (click)="editMode ? handleSaveTask() : handleEditTask(task)">
-                    {{ editMode ? 'Save' : 'Edit' }}
-                </button>
-                <button mat-raised-button color="warn" (click)="handleDeleteTask(task)">Delete</button>
-            </div>
-            <button mat-raised-button color="basic" (click)="handleReturnHome()">Back</button>
         </div>
     </div>
 </div>

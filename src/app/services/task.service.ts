@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Task, User } from '../TaskInterface';
 
 const httpOptions = {
@@ -26,13 +26,9 @@ export class TaskService {
 
   getTask(id: string): Observable<Task> {
     const url = `${this.API_URL}/${id}`;
-    console.log(this.http.get<Task>(url));
     return this.http.get<Task>(url);
   };
 
-  // getUsers(): Observable<User[]> {
-  //   return this.http.get<User[]>(this.API_URL_USERS);
-  // }
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.API_URL_USERS);
   }

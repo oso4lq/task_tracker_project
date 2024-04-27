@@ -12,7 +12,7 @@
     {
       "id": "2",
       "title": "make and link the pages",
-      "description": "MAKE MAIN PAGES:\nHome, New Task, BrowseEdit",
+      "description": "Make main pages:\nHome, New task, Browse/edit task",
       "deadline": "2024-04-25T22:00:00.000Z",
       "priority": false,
       "status": "DONE",
@@ -30,17 +30,17 @@
     {
       "id": "4",
       "title": "styling",
-      "description": "style the project",
+      "description": "stylize the project",
       "deadline": "2024-04-25T22:00:00.000Z",
       "priority": true,
-      "status": "TO DO",
+      "status": "IN PROCESS",
       "assignee": "Authorized Osetr"
     },
     {
       "id": "7c88",
       "title": "send the project",
       "description": "send the perfect project to the company",
-      "deadline": "2024-04-25T22:00:00.000Z",
+      "deadline": "2024-04-26T22:00:00.000Z",
       "priority": true,
       "status": "TO DO",
       "assignee": "Authorized Osetr"
@@ -48,11 +48,20 @@
     {
       "id": "aef7",
       "title": "Add small features",
-      "description": "Format date, set to localstorage (filter and everything else)",
+      "description": "colorize bolt icon, format date, userpage ",
       "deadline": "2024-04-25T22:00:00.000Z",
-      "priority": false,
+      "priority": true,
       "status": "IN PROCESS",
       "assignee": "Authorized Osetr"
+    },
+    {
+      "id": "ee9b",
+      "title": "testtask",
+      "description": "description",
+      "deadline": "2024-04-29T22:00:00.000Z",
+      "priority": true,
+      "status": "TESTING",
+      "assignee": "Jane Doe"
     }
   ],
   "users": [
@@ -60,19 +69,22 @@
       "id": "1",
       "name": "Authorized Osetr",
       "email": "osetr@fish.com",
-      "role": "admin"
+      "role": "admin",
+      "password": "admin"
     },
     {
       "id": "2",
       "name": "Jane Doe",
       "email": "jane.doe@mail.mail",
-      "role": "user"
+      "role": "user",
+      "password": "jane"
     },
     {
       "id": "3",
       "name": "John Doe",
       "email": "john.doe@mail.mail",
-      "role": "user"
+      "role": "user",
+      "password": "john"
     }
   ]
 }

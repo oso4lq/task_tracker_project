@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TasksComponent } from '../tasks/tasks.component';
 
@@ -13,28 +13,8 @@ import { TasksComponent } from '../tasks/tasks.component';
   styleUrl: './main.component.scss'
 })
 
-export class MainComponent implements OnInit {
+export class MainComponent {
 
-  protected links = [
-    {
-      name: 'New task',
-      url: 'new-task',
-    },
-    {
-      name: 'Browse task',
-      url: 'browse-task',
-    },
-  ]
-
-  constructor(
-    private router: Router
-  ) { }
-
-  ngOnInit(): void {
-  }
-
-  to(url: string) {
-    this.router.navigateByUrl(url);
-  }
+  constructor() { }
 
 }

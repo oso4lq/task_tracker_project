@@ -1,16 +1,14 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Task, User } from '../../TaskInterface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TaskService } from '../../services/task.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TaskService } from '../../services/task.service';
+import { Task, User } from '../../TaskInterface';
 
 @Component({
   selector: 'app-add-task',
-  templateUrl: './add-task.component.html',
-  styleUrl: './add-task.component.scss',
   standalone: true,
   imports: [
     CommonModule,
@@ -18,25 +16,20 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
   ],
+  templateUrl: './add-task.component.html',
+  styleUrl: './add-task.component.scss'
 })
 
 export class AddTaskComponent implements OnInit {
 
-  assignees: User[] = []; // Initialize with an empty array of User objects
-
   @Output() addTask: EventEmitter<Task> = new EventEmitter();
 
+  assignees: User[] = []; // initialize with an empty array of User objects for displaying in the dropdown
   title: string = '';
   description: string = '';
   deadline: string = '';
   priority: boolean = false;
   status: string = '';
-  // assignee: Array<Assignee> = [{
-  //   id: null,
-  //   name: '',
-  //   email: '',
-  //   role: '',
-  // }];
   assignee: string = '';
 
   constructor(
@@ -49,7 +42,7 @@ export class AddTaskComponent implements OnInit {
   };
 
   fetchAssignees(): void {
-    // Fetch assignees from the API
+    // fetch assignees from the API
     this.taskService.getUsers().subscribe(
       (users: User[]) => {
         this.assignees = users;
@@ -62,21 +55,18 @@ export class AddTaskComponent implements OnInit {
 
   onSubmit() {
     if (!this.title) {
-      alert('Please add a task');
+      alert('Please enter at least a task name');
       return;
-    }
+    };
 
     const newTask = {
       title: this.title,
-      description: this.description,
+      description: this.description || 'No description',
       deadline: this.deadline,
       priority: this.priority,
-      status: this.status,
-      assignee: this.assignee,
+      status: this.status || 'TO DO',
+      assignee: this.assignee || 'Unassigned',
     };
-
-    console.log('added task');
-    console.log(newTask);
 
     this.addTask.emit(newTask);
 

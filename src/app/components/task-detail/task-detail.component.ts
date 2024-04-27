@@ -1,14 +1,13 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { Task, User } from '../../TaskInterface';
-import { TaskService } from '../../services/task.service';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { Task, User } from '../../TaskInterface';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task-detail',
@@ -36,12 +35,6 @@ export class TaskDetailComponent implements OnInit {
   deadline: string = this.task.deadline;
   priority: boolean = this.task.priority;
   status: string = this.task.status;
-  // assignee: Array<Assignee> = [{
-  //   id: null,
-  //   name: '',
-  //   email: '',
-  //   role: '',
-  // }];
   assignee: string = this.task.assignee;
 
   constructor(
@@ -59,7 +52,6 @@ export class TaskDetailComponent implements OnInit {
         this.selectedStatus = task.status; // Initialize the selected status when loading the task
       });
     } else {
-      // Handle the case where taskId is null
       return;
     }
   };
@@ -77,25 +69,20 @@ export class TaskDetailComponent implements OnInit {
   }
 
   handleEditTask(task: Task) {
-    console.log('edit ' + task.title);
     this.editMode = !this.editMode;
   };
 
   handleSaveTask(): void {
-    console.log('save task');
     this.task.status = this.selectedStatus; // Update the task's status
     this.taskService.saveTask(this.task).subscribe((updatedTask: Task) => {
-      console.log('Task saved successfully:', updatedTask);
       this.task = updatedTask;
       this.editMode = false;
     });
     this.router.navigate(['/home']);
-  }
+  };
 
   handleDeleteTask(task: Task) {
-    console.log('delete ' + task.title);
     this.taskService.deleteTask(task).subscribe(() => {
-      console.log('Task deleted successfully');
       // Redirect the user to the home page or any other appropriate page
       this.router.navigate(['/home']);
     }, (error) => {
@@ -104,7 +91,6 @@ export class TaskDetailComponent implements OnInit {
   };
 
   handleReturnHome() {
-    console.log('return home');
     this.router.navigate(['/home']);
   };
 

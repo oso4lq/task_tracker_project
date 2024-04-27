@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-
 import { TaskItemComponent } from '../task-item/task-item.component';
 import { TaskService } from '../../services/task.service';
-
 import { Task } from '../../TaskInterface';
 import { STATUS_NAMES } from '../../status.constants';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.scss',
   standalone: true,
   imports: [
     CommonModule,
@@ -22,21 +18,28 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     TaskItemComponent,
   ],
+  providers: [DatePipe],
+  templateUrl: './tasks.component.html',
+  styleUrl: './tasks.component.scss',
 })
 
 export class TasksComponent implements OnInit {
 
   tasks: Task[] = [];
-  statusNames: string[] = STATUS_NAMES;
+  statusNames: string[] = STATUS_NAMES; // imported from status.constants.ts
   filter: string = 'status'; // filter by default === status
   filteredTasks: { [key: string]: Task[] } = {}; // Object to store tasks filtered by key
-
   columnNumber: number = 0; // display X columns of tasks by filter
-  keys = Object.keys;
+  keys = Object.keys; // keys for displaying the columns
 
-  constructor(private taskService: TaskService) { }
+  constructor(
+    private taskService: TaskService,
+    private datePipe: DatePipe,
+  ) { }
 
   ngOnInit(): void {
+    const storedFilter = localStorage.getItem('filter');
+    this.filter = storedFilter || 'status';
     this.taskService.getTasks()
       .subscribe((tasks) => {
         this.tasks = tasks;
@@ -46,6 +49,7 @@ export class TasksComponent implements OnInit {
 
   filterTasks(): void {
     this.filteredTasks = {};
+    localStorage.setItem('filter', this.filter);
     switch (this.filter) {
       case 'status':
         this.statusNames.forEach(status => {
@@ -86,9 +90,15 @@ export class TasksComponent implements OnInit {
 
   togglePriority(task: Task) {
     task.priority = !task.priority;
-    console.log(task.priority);
     this.taskService.togglePriority(task)
       .subscribe();
   };
 
+  isDeadlineFilter(): boolean {
+    return this.filter === 'deadline';
+  };
+
+  formatDate(deadline: string): string {
+    return this.datePipe.transform(deadline, 'dd.MM.yy') || '';
+  };
 };

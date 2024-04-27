@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -20,15 +19,12 @@ import { MatDividerModule } from '@angular/material/divider';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule,
 
     // Angular Material
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
     MatDividerModule,
-
-    // add lazy loading of other pages?
   ],
 })
 
